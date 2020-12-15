@@ -1,7 +1,7 @@
 {
   "npmScope": "wishlist",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "angular.json": "*",
