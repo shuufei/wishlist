@@ -13,10 +13,12 @@ import { NgrxSampleEffects } from './+state/ngrx-sample.effects';
   imports: [
     BrowserModule,
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
+    StoreModule.forRoot({}),
     StoreModule.forFeature(
-      fromNgrxSample.NGRXSAMPLE_FEATURE_KEY,
+      fromNgrxSample.NGRX_SAMPLE_FEATURE_KEY,
       fromNgrxSample.reducer
     ),
+    EffectsModule.forRoot(),
     EffectsModule.forFeature([NgrxSampleEffects]),
   ],
   providers: [],

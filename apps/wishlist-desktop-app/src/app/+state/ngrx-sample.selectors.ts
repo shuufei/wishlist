@@ -10,7 +10,7 @@ import {
 export const getNgrxSampleState = createFeatureSelector<
   NgrxSamplePartialState,
   State
->(NGRXSAMPLE_FEATURE_KEY);
+>(NGRX_SAMPLE_FEATURE_KEY);
 
 const { selectAll, selectEntities } = ngrxSampleAdapter.getSelectors();
 
