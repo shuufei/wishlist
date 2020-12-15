@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'wishlist-root',
+  selector: 'wda-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'wishlist-web';
+  title = 'wishlist-desktop-app';
 }

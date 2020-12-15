@@ -1,34 +1,34 @@
 {
   "version": 1,
   "projects": {
-    "wishlist-web": {
+    "wishlist-desktop-app": {
       "projectType": "application",
-      "root": "apps/wishlist-web",
-      "sourceRoot": "apps/wishlist-web/src",
-      "prefix": "wishlist",
+      "root": "apps/wishlist-desktop-app",
+      "sourceRoot": "apps/wishlist-desktop-app/src",
+      "prefix": "wda",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/wishlist-web",
-            "index": "apps/wishlist-web/src/index.html",
-            "main": "apps/wishlist-web/src/main.ts",
-            "polyfills": "apps/wishlist-web/src/polyfills.ts",
-            "tsConfig": "apps/wishlist-web/tsconfig.app.json",
+            "outputPath": "dist/apps/wishlist-desktop-app",
+            "index": "apps/wishlist-desktop-app/src/index.html",
+            "main": "apps/wishlist-desktop-app/src/main.ts",
+            "polyfills": "apps/wishlist-desktop-app/src/polyfills.ts",
+            "tsConfig": "apps/wishlist-desktop-app/tsconfig.app.json",
             "aot": true,
             "assets": [
-              "apps/wishlist-web/src/favicon.ico",
-              "apps/wishlist-web/src/assets"
+              "apps/wishlist-desktop-app/src/favicon.ico",
+              "apps/wishlist-desktop-app/src/assets"
             ],
-            "styles": ["apps/wishlist-web/src/styles.scss"],
+            "styles": ["apps/wishlist-desktop-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/wishlist-web/src/environments/environment.ts",
-                  "with": "apps/wishlist-web/src/environments/environment.prod.ts"
+                  "replace": "apps/wishlist-desktop-app/src/environments/environment.ts",
+                  "with": "apps/wishlist-desktop-app/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -56,64 +56,61 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "wishlist-web:build"
+            "browserTarget": "wishlist-desktop-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "wishlist-web:build:production"
+              "browserTarget": "wishlist-desktop-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "wishlist-web:build"
+            "browserTarget": "wishlist-desktop-app:build"
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": [
-              "apps/wishlist-web/tsconfig.app.json",
-              "apps/wishlist-web/tsconfig.spec.json",
-              "apps/wishlist-web/tsconfig.editor.json"
-            ],
-            "exclude": ["**/node_modules/**", "!apps/wishlist-web/**/*"]
+            "lintFilePatterns": [
+              "apps/wishlist-desktop-app/src/**/*.ts",
+              "apps/wishlist-desktop-app/src/**/*.html"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/wishlist-web"],
+          "outputs": ["coverage/apps/wishlist-desktop-app"],
           "options": {
-            "jestConfig": "apps/wishlist-web/jest.config.js",
+            "jestConfig": "apps/wishlist-desktop-app/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "wishlist-web-e2e": {
-      "root": "apps/wishlist-web-e2e",
-      "sourceRoot": "apps/wishlist-web-e2e/src",
+    "wishlist-desktop-app-e2e": {
+      "root": "apps/wishlist-desktop-app-e2e",
+      "sourceRoot": "apps/wishlist-desktop-app-e2e/src",
       "projectType": "application",
       "architect": {
         "e2e": {
           "builder": "@nrwl/cypress:cypress",
           "options": {
-            "cypressConfig": "apps/wishlist-web-e2e/cypress.json",
-            "tsConfig": "apps/wishlist-web-e2e/tsconfig.e2e.json",
-            "devServerTarget": "wishlist-web:serve"
+            "cypressConfig": "apps/wishlist-desktop-app-e2e/cypress.json",
+            "tsConfig": "apps/wishlist-desktop-app-e2e/tsconfig.e2e.json",
+            "devServerTarget": "wishlist-desktop-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "wishlist-web:serve:production"
+              "devServerTarget": "wishlist-desktop-app:serve:production"
             }
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "tsConfig": ["apps/wishlist-web-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/wishlist-web-e2e/**/*"]
+            "lintFilePatterns": ["apps/wishlist-desktop-app-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -136,7 +133,8 @@
     },
     "@nrwl/angular:application": {
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "e2eTestRunner": "cypress",
+      "strict": true
     },
     "@nrwl/angular:library": {
       "unitTestRunner": "jest"
@@ -145,5 +143,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "wishlist-web"
+  "defaultProject": "wishlist-desktop-app"
 }

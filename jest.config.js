@@ -1,3 +1,5 @@
 module.exports = {
-  projects: ['<rootDir>/apps/wishlist-web'],
+  projects: [
+    '<rootDir>/apps/wishlist-desktop-app',
+  ],
 };

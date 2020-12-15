@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'wishlist-web',
+  displayName: 'wishlist-desktop-app',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../coverage/apps/wishlist-web',
+  coverageDirectory: '../../coverage/apps/wishlist-desktop-app',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',

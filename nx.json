@@ -23,12 +23,12 @@
     }
   },
   "projects": {
-    "wishlist-web": {
+    "wishlist-desktop-app": {
       "tags": []
     },
-    "wishlist-web-e2e": {
+    "wishlist-desktop-app-e2e": {
       "tags": [],
-      "implicitDependencies": ["wishlist-web"]
+      "implicitDependencies": ["wishlist-desktop-app"]
     }
   }
 }
