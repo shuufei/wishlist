@@ -20,7 +20,9 @@
               "apps/wishlist-desktop-app/src/favicon.ico",
               "apps/wishlist-desktop-app/src/assets"
             ],
-            "styles": ["apps/wishlist-desktop-app/src/styles.scss"],
+            "styles": [
+              "apps/wishlist-desktop-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -81,10 +83,42 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/wishlist-desktop-app"],
+          "outputs": [
+            "coverage/apps/wishlist-desktop-app"
+          ],
           "options": {
             "jestConfig": "apps/wishlist-desktop-app/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "apps/wishlist-desktop-app/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        },
+        "build-storybook": {
+          "builder": "@nrwl/storybook:build",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "outputPath": "dist/storybook/wishlist-desktop-app",
+            "config": {
+              "configFolder": "apps/wishlist-desktop-app/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
           }
         }
       }
@@ -110,7 +144,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/wishlist-desktop-app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/wishlist-desktop-app-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
