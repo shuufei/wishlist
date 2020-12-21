@@ -28,6 +28,9 @@
     "wishlist-desktop-app-e2e": {
       "tags": [],
       "implicitDependencies": ["wishlist-desktop-app"]
+    },
+    "ui": {
+      "tags": []
     }
   }
 }

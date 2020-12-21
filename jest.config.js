@@ -1,5 +1,3 @@
 module.exports = {
-  projects: [
-    '<rootDir>/apps/wishlist-desktop-app',
-  ],
+  projects: ['<rootDir>/apps/wishlist-desktop-app', '<rootDir>/libs/ui'],
 };
