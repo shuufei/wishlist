@@ -1,0 +1,11 @@
+@use '../variables/colors.scss';
+
+@mixin define-colors($data: ()) {
+  @each $key, $value in $data {
+    .ui-color-#{'' + $key} {
+      color: $value;
+    }
+  }
+}
+
+@include define-colors(colors.$ui-colors);

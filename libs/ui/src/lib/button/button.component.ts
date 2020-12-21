@@ -3,8 +3,8 @@ import {
   ChangeDetectionStrategy,
   ElementRef,
   Input,
-  ViewEncapsulation,
 } from '@angular/core';
+import type { Color } from '../types';
 
 const HOST_ATTRIBUTES = ['ui-button', 'ui-stroked-button'];
 
@@ -13,16 +13,25 @@ const HOST_ATTRIBUTES = ['ui-button', 'ui-stroked-button'];
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None,
 })
 export class ButtonComponent {
   @Input()
   set color(value: Color) {
-    this.getHostElement().classList.add(value);
+    switch (value) {
+      case 'primary':
+        this.addStyleClass('ui-bg-color-primary');
+        this.addStyleClass('ui-color-white');
+        break;
+      case 'warn':
+        this.addStyleClass('ui-bg-color-warn');
+        this.addStyleClass('ui-color-white');
+        break;
+      default:
+        break;
+    }
   }
 
   constructor(private elementRef: ElementRef) {
-    this.addBaseStyleClass();
     this.addStyleClassByAttributes();
   }
 
@@ -30,15 +39,13 @@ export class ButtonComponent {
     return this.elementRef.nativeElement as HTMLElement;
   }
 
+  private addStyleClass(name: string) {
+    this.getHostElement().classList.add(name);
+  }
+
   private addStyleClassByAttributes() {
     HOST_ATTRIBUTES.filter((attr) =>
       this.getHostElement().hasAttribute(attr)
-    ).forEach((attr) => this.getHostElement().classList.add(attr));
-  }
-
-  private addBaseStyleClass() {
-    this.getHostElement().classList.add('ui-button-base');
+    ).forEach((attr) => this.addStyleClass(attr));
   }
 }
-
-export type Color = 'primary' | 'warn';

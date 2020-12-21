@@ -13,3 +13,13 @@ export const primary = () => ({
   `,
   props: {},
 });
+
+export const warn = () => ({
+  moduleMetadata: {
+    declarations: [ButtonComponent],
+  },
+  template: `
+    <button ui-button color="warn">button</button>
+  `,
+  props: {},
+});

@@ -1,0 +1,11 @@
+@use '../variables/colors.scss';
+
+@mixin define-background-colors($data: ()) {
+  @each $key, $value in $data {
+    .ui-bg-color-#{'' + $key} {
+      background-color: $value;
+    }
+  }
+}
+
+@include define-background-colors(colors.$ui-colors);
