@@ -1,0 +1,55 @@
+$base-spacing: 4;
+$spacing-rate-min: 0;
+$spacing-rate-max: 20;
+
+@for $i from $spacing-rate-min to $spacing-rate-max {
+  // margin
+  .ui-mt-#{$i} {
+    margin-top: #{$i * $base-spacing}px;
+  }
+  .ui-mr-#{$i} {
+    margin-right: #{$i * $base-spacing}px;
+  }
+  .ui-mb-#{$i} {
+    margin-bottom: #{$i * $base-spacing}px;
+  }
+  .ui-ml-#{$i} {
+    margin-left: #{$i * $base-spacing}px;
+  }
+  .ui-my-#{$i} {
+    margin-top: #{$i * $base-spacing}px;
+    margin-bottom: #{$i * $base-spacing}px;
+  }
+  .ui-mx-#{$i} {
+    margin-left: #{$i * $base-spacing}px;
+    margin-right: #{$i * $base-spacing}px;
+  }
+  .ui-m-#{$i} {
+    margin: #{$i * $base-spacing}px;
+  }
+
+  // padding
+  .ui-pt-#{$i} {
+    padding-top: #{$i * $base-spacing}px;
+  }
+  .ui-pr-#{$i} {
+    padding-right: #{$i * $base-spacing}px;
+  }
+  .ui-pb-#{$i} {
+    padding-bottom: #{$i * $base-spacing}px;
+  }
+  .ui-pl-#{$i} {
+    padding-left: #{$i * $base-spacing}px;
+  }
+  .ui-py-#{$i} {
+    padding-top: #{$i * $base-spacing}px;
+    padding-bottom: #{$i * $base-spacing}px;
+  }
+  .ui-px-#{$i} {
+    padding-left: #{$i * $base-spacing}px;
+    padding-right: #{$i * $base-spacing}px;
+  }
+  .ui-p-#{$i} {
+    padding: #{$i * $base-spacing}px;
+  }
+}

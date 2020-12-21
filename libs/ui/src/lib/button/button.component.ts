@@ -3,10 +3,12 @@ import {
   ChangeDetectionStrategy,
   ElementRef,
   Input,
+  OnInit,
+  OnDestroy,
 } from '@angular/core';
+import { merge, Subject } from 'rxjs';
+import { takeUntil, tap } from 'rxjs/operators';
 import type { Color } from '../types';
-
-const HOST_ATTRIBUTES = ['ui-button', 'ui-stroked-button'];
 
 @Component({
   selector: 'button[ui-button], button[ui-stroked-button]',
@@ -14,38 +16,35 @@ const HOST_ATTRIBUTES = ['ui-button', 'ui-stroked-button'];
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ButtonComponent {
-  @Input()
-  set color(value: Color) {
-    switch (value) {
-      case 'primary':
-        this.addStyleClass('ui-bg-color-primary');
-        this.addStyleClass('ui-color-white');
-        break;
-      case 'warn':
-        this.addStyleClass('ui-bg-color-warn');
-        this.addStyleClass('ui-color-white');
-        break;
-      default:
-        break;
-    }
-  }
+export class ButtonComponent implements OnInit, OnDestroy {
+  @Input() color: Color = 'basic';
+
+  // Events
+  private readonly onInit$ = new Subject<void>();
+  private readonly onDestroy$ = new Subject<void>();
+
+  // Event Handlers
+  private readonly setColorClassHandler$ = this.onInit$.pipe(
+    tap(() => {
+      this.getHostElement().classList.add(this.color);
+    })
+  );
 
   constructor(private elementRef: ElementRef) {
-    this.addStyleClassByAttributes();
+    merge(this.setColorClassHandler$)
+      .pipe(takeUntil(this.onDestroy$))
+      .subscribe();
+  }
+
+  ngOnInit() {
+    this.onInit$.next();
+  }
+
+  ngOnDestroy() {
+    this.onDestroy$.next();
   }
 
   private getHostElement() {
     return this.elementRef.nativeElement as HTMLElement;
-  }
-
-  private addStyleClass(name: string) {
-    this.getHostElement().classList.add(name);
-  }
-
-  private addStyleClassByAttributes() {
-    HOST_ATTRIBUTES.filter((attr) =>
-      this.getHostElement().hasAttribute(attr)
-    ).forEach((attr) => this.addStyleClass(attr));
   }
 }

@@ -1,9 +1,51 @@
+@use '../../styles/variables/colors.scss';
+
+@mixin define-fill-button-colors {
+  background-color: map-get($map: colors.$ui-colors, $key: white);
+  color: map-get($map: colors.$ui-colors, $key: text-black);
+  &.primary {
+    background-color: map-get($map: colors.$ui-colors, $key: primary);
+    color: map-get($map: colors.$ui-colors, $key: white);
+  }
+  &.warn {
+    background-color: map-get($map: colors.$ui-colors, $key: warn);
+    color: map-get($map: colors.$ui-colors, $key: white);
+  }
+  &.basic {
+    background-color: map-get($map: colors.$ui-colors, $key: white);
+    color: map-get($map: colors.$ui-colors, $key: text-black);
+  }
+}
+
+@mixin define-stroked-button-colors {
+  background-color: map-get($map: colors.$ui-colors, $key: white);
+  color: map-get($map: colors.$ui-colors, $key: text-black);
+  border: solid 1px map-get($map: colors.$ui-colors, $key: primary);
+  &.primary {
+    color: map-get($map: colors.$ui-colors, $key: primary);
+    border: solid 1px map-get($map: colors.$ui-colors, $key: primary);
+  }
+  &.warn {
+    color: map-get($map: colors.$ui-colors, $key: warn);
+    border: solid 1px map-get($map: colors.$ui-colors, $key: warn);
+  }
+  &.basic {
+    color: map-get($map: colors.$ui-colors, $key: text-black);
+    border: solid 1px map-get($map: colors.$ui-colors, $key: primary);
+  }
+}
+
 :host {
   padding: 8px 16px;
   border: none;
   border-radius: 3px;
   letter-spacing: 0.8px;
+  @include define-fill-button-colors();
   &:hover {
     cursor: pointer;
+  }
+  &[ui-stroked-button] {
+    border: solid 1px map-get($map: colors.$ui-colors, $key: primary);
+    @include define-stroked-button-colors();
   }
 }
