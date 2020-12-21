@@ -1,15 +1,15 @@
-
 import { ButtonComponent } from './button.component';
 
 export default {
-  title: 'ButtonComponent'
-}
+  title: 'ButtonComponent',
+};
 
 export const primary = () => ({
   moduleMetadata: {
-    imports: []
+    declarations: [ButtonComponent],
   },
-  component: ButtonComponent,
-  props: {
-  }
-})
+  template: `
+    <button ui-button color="primary">button</button>
+  `,
+  props: {},
+});
