@@ -1,0 +1,96 @@
+$font: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Helvetica Neue', Arial,
+  Meiryo, sans-serif;
+
+@mixin display1 {
+  font-family: $font;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+@mixin heading {
+  font-family: $font;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+@mixin heading-b {
+  font-family: $font;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@mixin subheading {
+  font-family: $font;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@mixin subheading-b {
+  font-family: $font;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@mixin body {
+  font-family: $font;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+@mixin body-b {
+  font-family: $font;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@mixin caption {
+  font-family: $font;
+  font-size: 11px;
+  font-weight: 300;
+}
+
+@mixin button-label {
+  font-family: $font;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+body {
+  font-family: $font;
+}
+
+.ui-display1 {
+  @include display1();
+}
+
+.ui-heading {
+  @include heading();
+}
+
+.ui-heading-b {
+  @include heading-b();
+}
+
+.ui-subheading {
+  @include subheading();
+}
+
+.ui-subheading-b {
+  @include subheading-b();
+}
+
+.ui-body {
+  @include body();
+}
+
+.ui-body-b {
+  @include body-b();
+}
+
+.ui-caption {
+  @include caption();
+}
+
+.ui-button-label {
+  @include button-label();
+}

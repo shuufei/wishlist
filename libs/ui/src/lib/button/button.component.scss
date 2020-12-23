@@ -1,4 +1,5 @@
 @use '../../styles/variables/colors.scss';
+@use '../../styles/typography.scss';
 
 @mixin define-fill-button-colors {
   background-color: map-get($map: colors.$ui-colors, $key: white);
@@ -41,6 +42,7 @@
   border-radius: 3px;
   letter-spacing: 0.8px;
   @include define-fill-button-colors();
+  @include typography.button-label();
   &:hover {
     cursor: pointer;
   }
