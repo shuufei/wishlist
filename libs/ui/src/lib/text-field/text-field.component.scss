@@ -1,0 +1,13 @@
+@use '../../styles/variables/colors.scss';
+@use '../../styles/typography.scss';
+
+:host {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 3px;
+  background-color: map-get($map: colors.$ui-colors, $key: primary-light);
+  color: map-get($map: colors.$ui-colors, $key: primary);
+  &:focus {
+    outline: auto map-get($map: colors.$ui-colors, $key: primary) 1px;
+  }
+}
