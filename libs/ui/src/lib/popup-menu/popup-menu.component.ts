@@ -12,6 +12,7 @@ import {
 } from '@angular/core';
 import { withLatestFrom, tap, takeUntil, filter, map } from 'rxjs/operators';
 import { ElementRef } from '@angular/core';
+import { Color } from '../types';
 
 @Component({
   selector: 'ui-popup-menu',
@@ -86,5 +87,6 @@ export class PopupMenuComponent implements OnDestroy {
 
 export type MenuAction = {
   id?: string;
+  color?: Color;
   text: string;
 };

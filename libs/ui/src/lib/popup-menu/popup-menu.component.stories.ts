@@ -16,6 +16,7 @@ const actions: MenuAction[] = [
   },
   {
     text: '削除',
+    color: 'warn',
   },
 ];
 

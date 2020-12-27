@@ -11,7 +11,8 @@ import { takeUntil, tap } from 'rxjs/operators';
 import type { Color } from '../types';
 
 @Component({
-  selector: 'button[ui-button], button[ui-stroked-button]',
+  selector:
+    'button[ui-button], button[ui-stroked-button], button[ui-fill-button]',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
