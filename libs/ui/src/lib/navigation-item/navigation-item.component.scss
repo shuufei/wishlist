@@ -1,0 +1,17 @@
+@use '../../styles/variables/colors.scss';
+@use '../../styles/typography.scss';
+
+:host {
+  @include typography.button-label();
+  background-color: map-get($map: colors.$ui-colors, $key: white);
+  color: map-get($map: colors.$ui-colors, $key: primary);
+  padding: 8px 16px;
+  border-radius: 3px;
+  &.active {
+    background-color: map-get($map: colors.$ui-colors, $key: primary);
+    color: map-get($map: colors.$ui-colors, $key: white);
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
