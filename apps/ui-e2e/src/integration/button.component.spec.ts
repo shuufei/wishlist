@@ -3,7 +3,7 @@ describe('button', () => {
   describe('fill', () => {
     beforeEach(() => cy.visit('/iframe.html?id=buttoncomponent--fill'));
 
-    it('default', () => {
+    it('ボタンが表示されること', () => {
       cy.matchImageSnapshot(`${componentName}--fill`);
     });
   });
@@ -11,7 +11,7 @@ describe('button', () => {
   describe('stroked', () => {
     beforeEach(() => cy.visit('/iframe.html?id=buttoncomponent--stroked'));
 
-    it('default', () => {
+    it('ボタンが表示されること', () => {
       cy.matchImageSnapshot(`${componentName}--stroked`);
     });
   });

@@ -3,11 +3,11 @@ describe('text-field', () => {
   describe('input', () => {
     beforeEach(() => cy.visit('/iframe.html?id=textfieldcomponent--input'));
 
-    it('default', () => {
+    it('テキストフィールドが表示されること', () => {
       cy.matchImageSnapshot(`${componentName}--input`);
     });
 
-    it('typing', () => {
+    it('テキストフィールドに入力できること', () => {
       cy.get('.ui-body').first().type('ui-body input');
       cy.get('.ui-display1').type('ui-display1 input');
       cy.get('.ui-heading').type('ui-heading input');
@@ -24,11 +24,11 @@ describe('text-field', () => {
   describe('textarea', () => {
     beforeEach(() => cy.visit('/iframe.html?id=textfieldcomponent--textarea'));
 
-    it('default', () => {
+    it('テキストフィールドが表示されること', () => {
       cy.matchImageSnapshot(`${componentName}--textarea`);
     });
 
-    it('typing', () => {
+    it('テキストフィールドに入力できること', () => {
       cy.get('.ui-body').first().type('ui-body textarea');
       cy.get('.ui-display1').type('ui-display1 textarea');
       cy.get('.ui-heading').type('ui-heading textarea');
