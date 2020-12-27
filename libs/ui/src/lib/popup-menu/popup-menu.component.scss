@@ -2,6 +2,7 @@
 
 :host {
   position: relative;
+  display: inline-block;
   .click-able {
     &:hover {
       cursor: pointer;

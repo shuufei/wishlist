@@ -1,0 +1,79 @@
+<div class="d-flex justify-content-between align-items-start">
+  <ng-container [ngSwitch]="mode$ | async">
+    <ng-container *ngSwitchCase="'view'">
+      <ng-container *ngTemplateOutlet="view"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'update'">
+      <ng-container *ngTemplateOutlet="update"></ng-container>
+    </ng-container>
+    <ng-container *ngSwitchCase="'delete'">
+      <ng-container *ngTemplateOutlet="delete"></ng-container>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template #view>
+  <div class="flex-fill">
+    <p class="ui-subheading-b">{{ title$ | async }}</p>
+    <pre class="ui-caption ui-mt-1">{{ description$ | async }}</pre>
+    <div
+      *ngIf="isShowSeparator$ | async"
+      class="separator ui-mt-10 ui-ml-1"
+    ></div>
+  </div>
+  <ui-popup-menu
+    [actions]="actions"
+    (clickedAction)="onClickedAction$.next($event)"
+  ></ui-popup-menu>
+</ng-template>
+
+<ng-template #update>
+  <div class="flex-fill">
+    <form [formGroup]="wishlistFormGroup">
+      <input
+        type="text"
+        ui-text-field
+        class="d-block text-field ui-subheading-b"
+        formControlName="title"
+      />
+      <textarea
+        class="d-block ui-mt-2 text-field ui-caption"
+        ui-text-field
+        formControlName="description"
+      ></textarea>
+    </form>
+    <div class="d-flex ui-mt-8 justify-content-end">
+      <button
+        ui-fill-button
+        color="primary"
+        class="ui-ml-2"
+        (click)="onUpdate$.next()"
+      >
+        更新
+      </button>
+      <button ui-button color="primary" (click)="mode$.next('view')">
+        キャンセル
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #delete>
+  <div class="flex-fill">
+    <p class="ui-subheading-b">{{ title$ | async }}</p>
+    <pre class="ui-caption ui-mt-1">{{ description$ | async }}</pre>
+    <div class="d-flex ui-mt-8 justify-content-end">
+      <button
+        ui-fill-button
+        color="warn"
+        class="ui-ml-2"
+        (click)="onDelete$.next()"
+      >
+        削除
+      </button>
+      <button ui-button color="warn" (click)="mode$.next('view')">
+        キャンセル
+      </button>
+    </div>
+  </div>
+</ng-template>

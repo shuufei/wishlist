@@ -5,15 +5,18 @@ import { TextFieldComponent } from './text-field/text-field.component';
 import { PopupMenuComponent } from './popup-menu/popup-menu.component';
 import { IconComponent } from './icon/icon.component';
 import { NavigationItemComponent } from './navigation-item/navigation-item.component';
+import { WishlistItemComponent } from './wishlist-item/wishlist-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   declarations: [
     ButtonComponent,
     TextFieldComponent,
     PopupMenuComponent,
     IconComponent,
     NavigationItemComponent,
+    WishlistItemComponent,
   ],
 })
 export class UiModule {}
