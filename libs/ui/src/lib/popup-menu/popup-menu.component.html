@@ -1,6 +1,20 @@
-<img ui-icon [icon]="'more'" alt="" class="click-able ui-p-1" (click)="onClickedTrigger$.next()" #trigger>
+<img
+  ui-icon
+  [icon]="'more'"
+  alt=""
+  class="click-able ui-p-1"
+  (click)="onClickedTrigger$.next()"
+  #trigger
+/>
 <ul class="popup" *ngIf="isOpen$ | async">
   <li *ngFor="let action of actions">
-    <button ui-button class="ui-px-8 action-button" [color]="action.color" (click)="onClickedAction$.next(action)">{{action.text}}</button>
+    <button
+      ui-button
+      class="ui-px-8 action-button"
+      [color]="action.color"
+      (click)="onClickedAction$.next(action)"
+    >
+      {{ action.text }}
+    </button>
   </li>
 </ul>
