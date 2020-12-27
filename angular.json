@@ -189,7 +189,8 @@
           "options": {
             "cypressConfig": "apps/ui-e2e/cypress.json",
             "tsConfig": "apps/ui-e2e/tsconfig.e2e.json",
-            "devServerTarget": "ui:storybook"
+            "devServerTarget": "ui:storybook",
+            "watch": true
           },
           "configurations": {
             "ci": {
