@@ -151,6 +151,7 @@
           "options": {
             "uiFramework": "@storybook/angular",
             "port": 4400,
+            "staticDir": ["libs/ui/src"],
             "config": {
               "configFolder": "libs/ui/.storybook"
             }

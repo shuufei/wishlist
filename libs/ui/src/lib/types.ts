@@ -9,3 +9,5 @@ export type Typography =
   | 'body'
   | 'body-b'
   | 'caption';
+
+export type Icon = 'plus' | 'more';

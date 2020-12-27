@@ -1,0 +1,24 @@
+@use '../../styles/variables/colors.scss';
+
+:host {
+  position: relative;
+  .click-able {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .popup {
+    display: inline-block;
+    border: 1px solid map-get($map: colors.$ui-colors, $key: primary);
+    border-radius: 3px;
+    position: absolute;
+    bottom: 0;
+    transform: translateY(calc(100% + 4px));
+    left: 0;
+  }
+
+  .action-button {
+    white-space: nowrap;
+  }
+}

@@ -5,51 +5,51 @@ $spacing-rate-max: 20;
 @for $i from $spacing-rate-min to $spacing-rate-max {
   // margin
   .ui-mt-#{$i} {
-    margin-top: #{$i * $base-spacing}px;
+    margin-top: #{$i * $base-spacing}px !important;
   }
   .ui-mr-#{$i} {
-    margin-right: #{$i * $base-spacing}px;
+    margin-right: #{$i * $base-spacing}px !important;
   }
   .ui-mb-#{$i} {
-    margin-bottom: #{$i * $base-spacing}px;
+    margin-bottom: #{$i * $base-spacing}px !important;
   }
   .ui-ml-#{$i} {
-    margin-left: #{$i * $base-spacing}px;
+    margin-left: #{$i * $base-spacing}px !important;
   }
   .ui-my-#{$i} {
-    margin-top: #{$i * $base-spacing}px;
-    margin-bottom: #{$i * $base-spacing}px;
+    margin-top: #{$i * $base-spacing}px !important;
+    margin-bottom: #{$i * $base-spacing}px !important;
   }
   .ui-mx-#{$i} {
-    margin-left: #{$i * $base-spacing}px;
-    margin-right: #{$i * $base-spacing}px;
+    margin-left: #{$i * $base-spacing}px !important;
+    margin-right: #{$i * $base-spacing}px !important;
   }
   .ui-m-#{$i} {
-    margin: #{$i * $base-spacing}px;
+    margin: #{$i * $base-spacing}px !important;
   }
 
   // padding
   .ui-pt-#{$i} {
-    padding-top: #{$i * $base-spacing}px;
+    padding-top: #{$i * $base-spacing}px !important;
   }
   .ui-pr-#{$i} {
-    padding-right: #{$i * $base-spacing}px;
+    padding-right: #{$i * $base-spacing}px !important;
   }
   .ui-pb-#{$i} {
-    padding-bottom: #{$i * $base-spacing}px;
+    padding-bottom: #{$i * $base-spacing}px !important;
   }
   .ui-pl-#{$i} {
-    padding-left: #{$i * $base-spacing}px;
+    padding-left: #{$i * $base-spacing}px !important;
   }
   .ui-py-#{$i} {
-    padding-top: #{$i * $base-spacing}px;
-    padding-bottom: #{$i * $base-spacing}px;
+    padding-top: #{$i * $base-spacing}px !important;
+    padding-bottom: #{$i * $base-spacing}px !important;
   }
   .ui-px-#{$i} {
-    padding-left: #{$i * $base-spacing}px;
-    padding-right: #{$i * $base-spacing}px;
+    padding-left: #{$i * $base-spacing}px !important;
+    padding-right: #{$i * $base-spacing}px !important;
   }
   .ui-p-#{$i} {
-    padding: #{$i * $base-spacing}px;
+    padding: #{$i * $base-spacing}px !important;
   }
 }
