@@ -1,5 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { ButtonComponent } from '../button/button.component';
+import { IconComponent } from '../icon/icon.component';
+import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
+import { TextFieldComponent } from '../text-field/text-field.component';
+import { WishlistFormGroupComponent } from '../wishlist-form-group/wishlist-form-group.component';
 import { WishlistItemComponent } from './wishlist-item.component';
 
 describe('WishlistItemComponent', () => {
@@ -8,9 +14,16 @@ describe('WishlistItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WishlistItemComponent ]
-    })
-    .compileComponents();
+      declarations: [
+        WishlistItemComponent,
+        PopupMenuComponent,
+        ButtonComponent,
+        IconComponent,
+        TextFieldComponent,
+        WishlistFormGroupComponent,
+      ],
+      imports: [ReactiveFormsModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {
