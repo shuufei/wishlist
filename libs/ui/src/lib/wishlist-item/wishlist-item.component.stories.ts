@@ -29,3 +29,11 @@ export const Default = () => ({
   `,
   props: {},
 });
+
+export const NoSeparator = () => ({
+  moduleMetadata,
+  template: `
+    <ui-wishlist-item title="ほしいものタイトル" description="ほしいもの詳細" [isShowSeparotor]="false" class="ui-mx-16"></ui-wishlist-item>
+  `,
+  props: {},
+});
