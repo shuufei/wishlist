@@ -22,7 +22,7 @@ const moduleMetadata = {
   imports: [ReactiveFormsModule],
 };
 
-export const primary = () => ({
+export const Default = () => ({
   moduleMetadata,
   template: `
     <ui-wishlist-item title="ほしいものタイトル" description="ほしいもの詳細" class="ui-mx-16"></ui-wishlist-item>

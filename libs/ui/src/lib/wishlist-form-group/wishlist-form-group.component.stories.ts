@@ -20,7 +20,7 @@ const moduleMetadata = {
   imports: [ReactiveFormsModule],
 };
 
-export const primary = () => ({
+export const Default = () => ({
   moduleMetadata,
   template: `
     <ui-wishlist-form-group></ui-wishlist-form-group>
