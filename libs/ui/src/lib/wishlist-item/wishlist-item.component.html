@@ -29,32 +29,13 @@
 
 <ng-template #update>
   <div class="flex-fill">
-    <form [formGroup]="wishlistFormGroup">
-      <input
-        type="text"
-        ui-text-field
-        class="d-block text-field ui-subheading-b"
-        formControlName="title"
-      />
-      <textarea
-        class="d-block ui-mt-2 text-field ui-caption"
-        ui-text-field
-        formControlName="description"
-      ></textarea>
-    </form>
-    <div class="d-flex ui-mt-8 justify-content-end">
-      <button
-        ui-fill-button
-        color="primary"
-        class="ui-ml-2"
-        (click)="onUpdate$.next()"
-      >
-        更新
-      </button>
-      <button ui-button color="primary" (click)="mode$.next('view')">
-        キャンセル
-      </button>
-    </div>
+    <ui-wishlist-form-group
+      [executeLabel]="'更新'"
+      [titleFormCtrl]="wishlistFormGroup.controls.title"
+      [descriptionFormCtrl]="wishlistFormGroup.controls.description"
+      (clickedExecute)="onUpdate$.next()"
+      (clickedCancel)="mode$.next('view')"
+    ></ui-wishlist-form-group>
   </div>
 </ng-template>
 

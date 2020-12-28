@@ -1,0 +1,24 @@
+<input
+  type="text"
+  ui-text-field
+  class="d-block text-field ui-subheading-b"
+  [formControl]="titleFormCtrl"
+/>
+<textarea
+  class="d-block ui-mt-2 text-field ui-caption"
+  ui-text-field
+  [formControl]="descriptionFormCtrl"
+></textarea>
+<div class="d-flex ui-mt-8 justify-content-end">
+  <button
+    ui-fill-button
+    color="primary"
+    class="ui-ml-2"
+    (click)="clickedExecute.emit()"
+  >
+    {{ executeLabel }}
+  </button>
+  <button ui-button color="primary" (click)="clickedCancel.emit()">
+    キャンセル
+  </button>
+</div>

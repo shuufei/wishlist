@@ -4,6 +4,7 @@ import { ButtonComponent } from '../button/button.component';
 import { IconComponent } from '../icon/icon.component';
 import { TextFieldComponent } from '../text-field/text-field.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { WishlistFormGroupComponent } from '../wishlist-form-group/wishlist-form-group.component';
 
 export default {
   title: 'WishlistItemComponent',
@@ -16,6 +17,7 @@ const moduleMetadata = {
     ButtonComponent,
     IconComponent,
     TextFieldComponent,
+    WishlistFormGroupComponent,
   ],
   imports: [ReactiveFormsModule],
 };
