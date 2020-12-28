@@ -1,4 +1,4 @@
-describe('popupmenu', () => {
+describe('popup-menu', () => {
   const componentName = 'popupmenucomponent';
   describe('default', () => {
     beforeEach(() => cy.visit('/iframe.html?id=popupmenucomponent--default'));

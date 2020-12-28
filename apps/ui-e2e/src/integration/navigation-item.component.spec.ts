@@ -1,4 +1,4 @@
-describe('navigation item', () => {
+describe('navigation-item', () => {
   const componentName = 'navigationitemcomponent';
   describe('active', () => {
     beforeEach(() =>
