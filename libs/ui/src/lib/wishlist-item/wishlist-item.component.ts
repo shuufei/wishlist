@@ -6,9 +6,9 @@ import {
   EventEmitter,
   OnDestroy,
 } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { BehaviorSubject, Subject, merge } from 'rxjs';
 import { tap, takeUntil, startWith, map, shareReplay } from 'rxjs/operators';
+import { FormBuilder, FormGroup } from '@ngneat/reactive-forms';
 import type { MenuAction } from '../popup-menu/popup-menu.component';
 
 @Component({
@@ -40,23 +40,20 @@ export class WishlistItemComponent implements OnDestroy {
   private readonly onDestroy$ = new Subject<void>();
 
   // State
-  // TODO: 型推論が効くFormライブラリを利用する
-  readonly wishlistFormGroup = this.fb.group({
-    title: [''],
-    description: [''],
+  readonly wishlistFormGroup: FormGroup<WishlistItem> = this.fb.group({
+    title: '',
+    description: '',
   });
   private readonly inputTitle$ = new BehaviorSubject<string>('');
   private readonly inputDescription$ = new BehaviorSubject<string>('');
   private readonly inputIsShowSeparator$ = new BehaviorSubject<boolean>(true);
   readonly title$ = merge(
     this.inputTitle$,
-    this.onUpdate$.pipe(map(() => this.wishlistFormGroup.value.title as string))
+    this.onUpdate$.pipe(map(() => this.wishlistFormGroup.value.title))
   ).pipe(startWith(''), shareReplay(1));
   readonly description$ = merge(
     this.inputDescription$,
-    this.onUpdate$.pipe(
-      map(() => this.wishlistFormGroup.value.description as string)
-    )
+    this.onUpdate$.pipe(map(() => this.wishlistFormGroup.value.description))
   ).pipe(startWith(''), shareReplay(1));
   readonly isShowSeparator$ = this.inputIsShowSeparator$
     .asObservable()
@@ -110,8 +107,8 @@ export class WishlistItemComponent implements OnDestroy {
   );
   private readonly emitUpdateEventHandler$ = this.onUpdate$.pipe(
     tap(() => {
-      const title = this.wishlistFormGroup.value.title as string;
-      const description = this.wishlistFormGroup.value.description as string;
+      const title = this.wishlistFormGroup.value.title;
+      const description = this.wishlistFormGroup.value.description;
       this.update.emit({
         title,
         description,
