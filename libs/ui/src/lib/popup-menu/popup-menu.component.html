@@ -11,7 +11,7 @@
     <button
       ui-button
       class="ui-px-8 action-button"
-      [color]="action.color"
+      [color]="action.color || 'primary'"
       (click)="onClickedAction$.next(action)"
     >
       {{ action.text }}

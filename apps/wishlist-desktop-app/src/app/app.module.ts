@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { UiModule } from '@wishlist/ui';
 
 @NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, NavigationComponent],
+  imports: [BrowserModule, AppRoutingModule, UiModule],
   providers: [],
   bootstrap: [AppComponent],
 })

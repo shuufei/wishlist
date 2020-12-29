@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  max-width: 160px;
+}
+
+a[ui-navigation-item] {
+  display: inline-block;
+  width: 100%;
+}

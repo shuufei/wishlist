@@ -15,6 +15,20 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'friend',
+    loadChildren: () =>
+      import('./pages/friend-page/friend-page.module').then(
+        (m) => m.FriendPageModule
+      ),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile-page/profile-page.module').then(
+        (m) => m.ProfilePageModule
+      ),
+  },
+  {
     path: '**',
     redirectTo: '/mylist',
   },

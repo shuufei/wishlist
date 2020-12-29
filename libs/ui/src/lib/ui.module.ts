@@ -9,16 +9,19 @@ import { WishlistItemComponent } from './wishlist-item/wishlist-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WishlistFormGroupComponent } from './wishlist-form-group/wishlist-form-group.component';
 
+const COMPONENTS = [
+  ButtonComponent,
+  TextFieldComponent,
+  PopupMenuComponent,
+  IconComponent,
+  NavigationItemComponent,
+  WishlistItemComponent,
+  WishlistFormGroupComponent,
+];
+
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule],
-  declarations: [
-    ButtonComponent,
-    TextFieldComponent,
-    PopupMenuComponent,
-    IconComponent,
-    NavigationItemComponent,
-    WishlistItemComponent,
-    WishlistFormGroupComponent,
-  ],
+  declarations: [...COMPONENTS],
+  exports: [...COMPONENTS],
 })
 export class UiModule {}

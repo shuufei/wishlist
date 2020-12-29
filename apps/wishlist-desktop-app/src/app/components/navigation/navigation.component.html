@@ -1,0 +1,26 @@
+<ul>
+  <li>
+    <a
+      ui-navigation-item
+      routerLink="/mylist"
+      [active]="(isMylistActive$ | async) || false"
+      >Myリスト</a
+    >
+  </li>
+  <li class="ui-mt-1">
+    <a
+      ui-navigation-item
+      routerLink="/friend"
+      [active]="(isFriendActive$ | async) || false"
+      >友だち</a
+    >
+  </li>
+  <li class="ui-mt-1">
+    <a
+      ui-navigation-item
+      routerLink="/profile"
+      [active]="(isProfileActive$ | async) || false"
+      >プロフィール</a
+    >
+  </li>
+</ul>
