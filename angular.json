@@ -20,9 +20,7 @@
               "apps/wishlist-desktop-app/src/favicon.ico",
               "apps/wishlist-desktop-app/src/assets"
             ],
-            "styles": [
-              "apps/wishlist-desktop-app/src/styles.scss"
-            ],
+            "styles": ["apps/wishlist-desktop-app/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -83,9 +81,7 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/wishlist-desktop-app"
-          ],
+          "outputs": ["coverage/apps/wishlist-desktop-app"],
           "options": {
             "jestConfig": "apps/wishlist-desktop-app/jest.config.js",
             "passWithNoTests": true
@@ -114,9 +110,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/wishlist-desktop-app-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/wishlist-desktop-app-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -130,17 +124,12 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/ui/src/**/*.ts",
-              "libs/ui/src/**/*.html"
-            ]
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/ui"
-          ],
+          "outputs": ["coverage/libs/ui"],
           "options": {
             "jestConfig": "libs/ui/jest.config.js",
             "passWithNoTests": true
@@ -201,9 +190,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/ui-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -234,7 +221,8 @@
     },
     "@nrwl/angular:component": {
       "style": "scss",
-      "changeDetection": "OnPush"
+      "changeDetection": "OnPush",
+      "displayBlock": true
     }
   },
   "defaultProject": "wishlist-desktop-app"
