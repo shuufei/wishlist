@@ -1,1 +1,16 @@
-<p>mylist-page works!</p>
+<div class="d-flex justify-content-center ui-mt-2">
+  <button ui-button class="d-flex align-items-center">
+    <img ui-icon icon="plus" />
+    <span class="ui-ml-2">ほしいものを追加</span>
+  </button>
+</div>
+
+<div>
+  <ng-container *ngFor="let wishlist of wishlistItems$ | async; last as isLast">
+    <ui-wishlist-item
+      [title]="wishlist.title"
+      [description]="wishlist.description"
+      [isShowSeparotor]="!isLast"
+    ></ui-wishlist-item>
+  </ng-container>
+</div>

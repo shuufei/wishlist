@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { WishlistItemForDb } from './types';
+import { map } from 'rxjs/operators';
 import {
   MylistDataAccess,
   WishlistItemResponse,
 } from '@wishlist/mylist/feature-shell';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',

@@ -274,6 +274,31 @@
           }
         }
       }
+    },
+    "mylist-shared-store": {
+      "projectType": "library",
+      "root": "libs/mylist/shared/store",
+      "sourceRoot": "libs/mylist/shared/store/src",
+      "prefix": "wishlist",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mylist/shared/store/src/**/*.ts",
+              "libs/mylist/shared/store/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mylist/shared/store"],
+          "options": {
+            "jestConfig": "libs/mylist/shared/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

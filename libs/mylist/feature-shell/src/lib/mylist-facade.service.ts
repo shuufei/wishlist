@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
-import { MylistDataAccess } from './interface/mylist-data-access';
 import { tap } from 'rxjs/operators';
+
+import { MylistDataAccess } from './interface/mylist-data-access';
+import { MylistStore } from './interface/mylist-store';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MylistFacadeService {
-  constructor(private dataAccessService: MylistDataAccess) {}
+  readonly mylist$ = this.store.list$();
+
+  constructor(
+    private dataAccessService: MylistDataAccess,
+    private store: MylistStore
+  ) {}
 
   loadMylist() {
     return this.dataAccessService
       ?.list()
-      .pipe(tap((v) => console.log('mylist facade: ', v)));
+      .pipe(tap((items) => this.store.set(items)));
   }
 }

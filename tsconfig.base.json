@@ -22,7 +22,8 @@
       "@wishlist/mylist/feature-shell": [
         "libs/mylist/feature-shell/src/index.ts"
       ],
-      "@wishlist/shared/domain": ["libs/shared/domain/src/index.ts"]
+      "@wishlist/shared/domain": ["libs/shared/domain/src/index.ts"],
+      "@wishlist/mylist/shared/store": ["libs/mylist/shared/store/src/index.ts"]
     },
     "strictPropertyInitialization": false
   },

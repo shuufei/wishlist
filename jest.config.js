@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/mylist/feature-shell',
     '<rootDir>/libs/mylist/domain',
     '<rootDir>/libs/shared/domain',
+    '<rootDir>/libs/mylist/shared/store',
   ],
 };

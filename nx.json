@@ -49,6 +49,9 @@
     },
     "shared-domain": {
       "tags": ["scope:shared-domain"]
+    },
+    "mylist-shared-store": {
+      "tags": ["scope:mylist-infrastructure"]
     }
   }
 }
