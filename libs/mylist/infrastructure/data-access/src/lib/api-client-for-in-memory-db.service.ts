@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { WishlistItemForDb } from './types';
 import {
   MylistDataAccess,
   WishlistItemResponse,
+  WishlistItem,
 } from '@wishlist/mylist/feature-shell';
 
 @Injectable({
@@ -17,7 +17,7 @@ export class ApiClientForInMemoryDbService implements MylistDataAccess {
 
   list() {
     return this.httpClient
-      .get<WishlistItemForDb[]>(this.baseUrl)
+      .get<WishlistItem[]>(this.baseUrl)
       .pipe(
         map((items) =>
           items.map(
@@ -29,7 +29,7 @@ export class ApiClientForInMemoryDbService implements MylistDataAccess {
 
   get(id: Id) {
     return this.httpClient
-      .get<WishlistItemForDb>(`${this.baseUrl}/${id}`)
+      .get<WishlistItem>(`${this.baseUrl}/${id}`)
       .pipe(
         map(
           (item) =>
@@ -40,7 +40,7 @@ export class ApiClientForInMemoryDbService implements MylistDataAccess {
 
   create(body: Body) {
     return this.httpClient
-      .post<WishlistItemForDb>(this.baseUrl, body)
+      .post<WishlistItem>(this.baseUrl, body)
       .pipe(
         map(
           (item) =>
@@ -49,7 +49,7 @@ export class ApiClientForInMemoryDbService implements MylistDataAccess {
       );
   }
 
-  update(body: WishlistItemForDb) {
+  update(body: WishlistItem) {
     return this.httpClient
       .put(`${this.baseUrl}/${body.id}`, body)
       .pipe(map(() => undefined));
@@ -62,6 +62,6 @@ export class ApiClientForInMemoryDbService implements MylistDataAccess {
   }
 }
 
-type Id = WishlistItemForDb['id'];
+type Id = WishlistItem['id'];
 
-type Body = Pick<WishlistItemForDb, 'title' | 'description'>;
+type Body = Pick<WishlistItem, 'title' | 'description'>;

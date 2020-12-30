@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { WishlistItemForDb } from './types';
+import { WishlistItem } from '@wishlist/mylist/feature-shell';
 
 @Injectable({
   providedIn: 'root',
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const mylist: WishlistItemForDb[] = [
+    const mylist: WishlistItem[] = [
       {
         id: 1,
         title: '黒い財布',
