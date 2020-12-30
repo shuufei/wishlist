@@ -34,12 +34,9 @@
     "wishlist-desktop-app-e2e": {
       "tags": []
     },
-    "ui": {
-      "tags": ["scope:shared-ui"]
-    },
     "ui-e2e": {
       "tags": [],
-      "implicitDependencies": ["ui"]
+      "implicitDependencies": ["shared-ui"]
     },
     "mylist-shared-data-access": {
       "tags": ["scope:mylist-infrastructure"]
@@ -52,6 +49,9 @@
     },
     "mylist-shared-store": {
       "tags": ["scope:mylist-infrastructure"]
+    },
+    "shared-ui": {
+      "tags": ["scope:shared-ui"]
     }
   }
 }

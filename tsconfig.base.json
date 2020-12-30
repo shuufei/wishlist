@@ -10,22 +10,34 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": [
+      "es2017",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@wishlist/ui": ["libs/ui/src/index.ts"],
       "@wishlist/mylist/shared/data-access": [
         "libs/mylist/shared/data-access/src/index.ts"
       ],
       "@wishlist/mylist/feature-shell": [
         "libs/mylist/feature-shell/src/index.ts"
       ],
-      "@wishlist/shared/domain": ["libs/shared/domain/src/index.ts"],
-      "@wishlist/mylist/shared/store": ["libs/mylist/shared/store/src/index.ts"]
+      "@wishlist/shared/domain": [
+        "libs/shared/domain/src/index.ts"
+      ],
+      "@wishlist/mylist/shared/store": [
+        "libs/mylist/shared/store/src/index.ts"
+      ],
+      "@wishlist/shared/ui": [
+        "libs/shared/ui/src/index.ts"
+      ]
     },
     "strictPropertyInitialization": false
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

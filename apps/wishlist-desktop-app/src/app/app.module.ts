@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { UiModule } from '@wishlist/ui';
+import { UiModule } from '@wishlist/shared/ui';
 
 @NgModule({
   declarations: [AppComponent, NavigationComponent],
