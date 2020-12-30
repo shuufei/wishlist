@@ -11,3 +11,8 @@ export type Typography =
   | 'caption';
 
 export type Icon = 'plus' | 'more';
+
+export type WishlistItem = {
+  title: string;
+  description: string;
+};

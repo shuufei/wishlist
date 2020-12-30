@@ -10,6 +10,7 @@ import { BehaviorSubject, Subject, merge } from 'rxjs';
 import { tap, takeUntil, startWith, map, shareReplay } from 'rxjs/operators';
 import { FormBuilder, FormGroup } from '@ngneat/reactive-forms';
 import type { MenuAction } from '../popup-menu/popup-menu.component';
+import { WishlistItem } from '../types';
 
 @Component({
   selector: 'ui-wishlist-item',
@@ -136,9 +137,4 @@ export class WishlistItemComponent implements OnDestroy {
   }
 }
 
-export type WishlistItem = {
-  title: string;
-  description: string;
-};
-
-export type Mode = 'view' | 'update' | 'delete';
+type Mode = 'view' | 'update' | 'delete';
