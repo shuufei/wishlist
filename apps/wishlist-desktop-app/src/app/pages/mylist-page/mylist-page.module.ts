@@ -8,12 +8,12 @@ import { MylistFeatureShellModule } from '@wishlist/mylist/feature-shell';
 import {
   ApiClientForInMemoryDbService,
   MylistSharedDataAccessModule,
-} from '@wishlist/mylist/shared/data-access';
+} from '@wishlist/mylist/infrastructure/data-access';
 import {
   MylistSharedStoreModule,
   MylistStoreService,
   State,
-} from '@wishlist/mylist/shared/store';
+} from '@wishlist/mylist/infrastructure/store';
 import { MylistPageComponent } from './mylist-page.component';
 import { MylistPageRoutingModule } from './mylist-page-routing.module';
 

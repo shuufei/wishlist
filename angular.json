@@ -25,7 +25,9 @@
                 "output": "/assets"
               }
             ],
-            "styles": ["apps/wishlist-desktop-app/src/styles.scss"],
+            "styles": [
+              "apps/wishlist-desktop-app/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -86,7 +88,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/wishlist-desktop-app"],
+          "outputs": [
+            "coverage/apps/wishlist-desktop-app"
+          ],
           "options": {
             "jestConfig": "apps/wishlist-desktop-app/jest.config.js",
             "passWithNoTests": true
@@ -115,7 +119,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/wishlist-desktop-app-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/wishlist-desktop-app-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -142,32 +148,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "mylist-shared-data-access": {
-      "projectType": "library",
-      "root": "libs/mylist/shared/data-access",
-      "sourceRoot": "libs/mylist/shared/data-access/src",
-      "prefix": "wishlist",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
             "lintFilePatterns": [
-              "libs/mylist/shared/data-access/src/**/*.ts",
-              "libs/mylist/shared/data-access/src/**/*.html"
+              "apps/ui-e2e/**/*.{js,ts}"
             ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mylist/shared/data-access"],
-          "options": {
-            "jestConfig": "libs/mylist/shared/data-access/jest.config.js",
-            "passWithNoTests": true
           }
         }
       }
@@ -189,7 +172,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mylist/feature-shell"],
+          "outputs": [
+            "coverage/libs/mylist/feature-shell"
+          ],
           "options": {
             "jestConfig": "libs/mylist/feature-shell/jest.config.js",
             "passWithNoTests": true
@@ -214,34 +199,11 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/domain"],
+          "outputs": [
+            "coverage/libs/shared/domain"
+          ],
           "options": {
             "jestConfig": "libs/shared/domain/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "mylist-shared-store": {
-      "projectType": "library",
-      "root": "libs/mylist/shared/store",
-      "sourceRoot": "libs/mylist/shared/store/src",
-      "prefix": "wishlist",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/mylist/shared/store/src/**/*.ts",
-              "libs/mylist/shared/store/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/mylist/shared/store"],
-          "options": {
-            "jestConfig": "libs/mylist/shared/store/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -264,7 +226,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/ui"],
+          "outputs": [
+            "coverage/libs/shared/ui"
+          ],
           "options": {
             "jestConfig": "libs/shared/ui/jest.config.js",
             "passWithNoTests": true
@@ -275,7 +239,9 @@
           "options": {
             "uiFramework": "@storybook/angular",
             "port": 4400,
-            "staticDir": ["libs/shared/ui/src"],
+            "staticDir": [
+              "libs/shared/ui/src"
+            ],
             "config": {
               "configFolder": "libs/shared/ui/.storybook"
             }
@@ -299,6 +265,60 @@
             "ci": {
               "quiet": true
             }
+          }
+        }
+      }
+    },
+    "mylist-infrastructure-data-access": {
+      "projectType": "library",
+      "root": "libs/mylist/infrastructure/data-access",
+      "sourceRoot": "libs/mylist/infrastructure/data-access/src",
+      "prefix": "wishlist",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mylist/infrastructure/data-access/src/**/*.ts",
+              "libs/mylist/infrastructure/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/mylist/infrastructure/data-access"
+          ],
+          "options": {
+            "jestConfig": "libs/mylist/infrastructure/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mylist-infrastructure-store": {
+      "projectType": "library",
+      "root": "libs/mylist/infrastructure/store",
+      "sourceRoot": "libs/mylist/infrastructure/store/src",
+      "prefix": "wishlist",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mylist/infrastructure/store/src/**/*.ts",
+              "libs/mylist/infrastructure/store/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/mylist/infrastructure/store"
+          ],
+          "options": {
+            "jestConfig": "libs/mylist/infrastructure/store/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

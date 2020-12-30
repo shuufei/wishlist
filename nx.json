@@ -29,29 +29,43 @@
   },
   "projects": {
     "wishlist-desktop-app": {
-      "tags": ["scope:wishlist-desktop-app"]
+      "tags": [
+        "scope:wishlist-desktop-app"
+      ]
     },
     "wishlist-desktop-app-e2e": {
       "tags": []
     },
     "ui-e2e": {
       "tags": [],
-      "implicitDependencies": ["shared-ui"]
-    },
-    "mylist-shared-data-access": {
-      "tags": ["scope:mylist-infrastructure"]
+      "implicitDependencies": [
+        "shared-ui"
+      ]
     },
     "mylist-feature-shell": {
-      "tags": ["scope:mylist-feature"]
+      "tags": [
+        "scope:mylist-feature"
+      ]
     },
     "shared-domain": {
-      "tags": ["scope:shared-domain"]
-    },
-    "mylist-shared-store": {
-      "tags": ["scope:mylist-infrastructure"]
+      "tags": [
+        "scope:shared-domain"
+      ]
     },
     "shared-ui": {
-      "tags": ["scope:shared-ui"]
+      "tags": [
+        "scope:shared-ui"
+      ]
+    },
+    "mylist-infrastructure-data-access": {
+      "tags": [
+        "scope:mylist-infrastructure"
+      ]
+    },
+    "mylist-infrastructure-store": {
+      "tags": [
+        "scope:mylist-infrastructure"
+      ]
     }
   }
 }

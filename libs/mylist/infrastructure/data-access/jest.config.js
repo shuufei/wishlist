@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'mylist-shared-store',
+  displayName: 'mylist-infrastructure-data-access',
   preset: '../../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -14,7 +14,7 @@ module.exports = {
       },
     },
   },
-  coverageDirectory: '../../../../coverage/libs/mylist/shared/store',
+  coverageDirectory: '../../../../coverage/libs/mylist/infrastructure/data-access',
   snapshotSerializers: [
     'jest-preset-angular/build/AngularNoNgAttributesSnapshotSerializer.js',
     'jest-preset-angular/build/AngularSnapshotSerializer.js',
