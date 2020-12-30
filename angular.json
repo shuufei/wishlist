@@ -18,7 +18,12 @@
             "aot": true,
             "assets": [
               "apps/wishlist-desktop-app/src/favicon.ico",
-              "apps/wishlist-desktop-app/src/assets"
+              "apps/wishlist-desktop-app/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/ui/src/assets",
+                "output": "/assets"
+              }
             ],
             "styles": ["apps/wishlist-desktop-app/src/styles.scss"],
             "scripts": []
@@ -191,6 +196,81 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/ui-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "mylist-shared-data-access": {
+      "projectType": "library",
+      "root": "libs/mylist/shared/data-access",
+      "sourceRoot": "libs/mylist/shared/data-access/src",
+      "prefix": "wishlist",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mylist/shared/data-access/src/**/*.ts",
+              "libs/mylist/shared/data-access/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mylist/shared/data-access"],
+          "options": {
+            "jestConfig": "libs/mylist/shared/data-access/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "mylist-feature-shell": {
+      "projectType": "library",
+      "root": "libs/mylist/feature-shell",
+      "sourceRoot": "libs/mylist/feature-shell/src",
+      "prefix": "wishlist",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/mylist/feature-shell/src/**/*.ts",
+              "libs/mylist/feature-shell/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/mylist/feature-shell"],
+          "options": {
+            "jestConfig": "libs/mylist/feature-shell/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-domain": {
+      "projectType": "library",
+      "root": "libs/shared/domain",
+      "sourceRoot": "libs/shared/domain/src",
+      "prefix": "wishlist",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/domain/src/**/*.ts",
+              "libs/shared/domain/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/domain"],
+          "options": {
+            "jestConfig": "libs/shared/domain/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

@@ -12,7 +12,22 @@
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
-              { "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }
+              {
+                "sourceTag": "scope:wishlist-desktop-app",
+                "onlyDependOnLibsWithTags": [
+                  "scope:mylist-feature",
+                  "scope:mylist-infrastructure",
+                  "scope:shared-ui"
+                ]
+              },
+              {
+                "sourceTag": "scope:mylist-feature",
+                "onlyDependOnLibsWithTags": ["scope:shared-domain"]
+              },
+              {
+                "sourceTag": "scope:mylist-infrastructure",
+                "onlyDependOnLibsWithTags": ["scope:mylist-feature"]
+              }
             ]
           }
         ]

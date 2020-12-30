@@ -29,22 +29,26 @@
   },
   "projects": {
     "wishlist-desktop-app": {
-      "tags": []
+      "tags": ["scope:wishlist-desktop-app"]
     },
     "wishlist-desktop-app-e2e": {
-      "tags": [],
-      "implicitDependencies": [
-        "wishlist-desktop-app"
-      ]
+      "tags": []
     },
     "ui": {
-      "tags": []
+      "tags": ["scope:shared-ui"]
     },
     "ui-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "ui"
-      ]
+      "implicitDependencies": ["ui"]
+    },
+    "mylist-shared-data-access": {
+      "tags": ["scope:mylist-infrastructure"]
+    },
+    "mylist-feature-shell": {
+      "tags": ["scope:mylist-feature"]
+    },
+    "shared-domain": {
+      "tags": ["scope:shared-domain"]
     }
   }
 }
