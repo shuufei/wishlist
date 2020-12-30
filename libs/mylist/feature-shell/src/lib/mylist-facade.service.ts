@@ -33,4 +33,10 @@ export class MylistFacadeService {
       .delete(id)
       .pipe(tap(() => this.store.remove(id)));
   }
+
+  create(item: Pick<WishlistItem, 'title' | 'description'>) {
+    return this.dataAccessService
+      .create(item)
+      .pipe(tap((item) => this.store.add(item)));
+  }
 }

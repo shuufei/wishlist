@@ -1,0 +1,20 @@
+<ng-container *ngIf="isActiveForm$ | async; else deactiveForm">
+  <ui-wishlist-form-group
+    [titleFormCtrl]="itemFormGroup.controls.title"
+    [descriptionFormCtrl]="itemFormGroup.controls.description"
+    [executeLabel]="'追加'"
+    (clickedCancel)="onClickedAddCancel$.next()"
+    (clickedExecute)="onClickedAddExecute$.next()"
+    class="flex-fill"
+  ></ui-wishlist-form-group>
+</ng-container>
+<ng-template #deactiveForm>
+  <button
+    ui-button
+    class="d-flex align-items-center"
+    (click)="onClickedAddButton$.next()"
+  >
+    <img ui-icon icon="plus" />
+    <span class="ui-ml-2">ほしいものを追加</span>
+  </button>
+</ng-template>

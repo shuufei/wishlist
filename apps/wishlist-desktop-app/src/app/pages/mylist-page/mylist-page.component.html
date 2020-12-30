@@ -1,8 +1,5 @@
 <div class="d-flex justify-content-center ui-mt-2">
-  <button ui-button class="d-flex align-items-center">
-    <img ui-icon icon="plus" />
-    <span class="ui-ml-2">ほしいものを追加</span>
-  </button>
+  <wda-add-item-form (create)="onCreate$.next($event)"></wda-add-item-form>
 </div>
 
 <div>
