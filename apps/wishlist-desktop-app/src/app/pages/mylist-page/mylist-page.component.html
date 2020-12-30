@@ -11,6 +11,8 @@
       [title]="wishlist.title"
       [description]="wishlist.description"
       [isShowSeparotor]="!isLast"
+      (update)="onUpdate$.next([wishlist.id, $event])"
+      (delete)="onDelete$.next(wishlist.id)"
     ></ui-wishlist-item>
   </ng-container>
 </div>

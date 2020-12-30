@@ -7,7 +7,7 @@ export abstract class MylistDataAccess {
   list: () => Observable<WishlistItemResponse[]>;
   get: (id: Id) => Observable<WishlistItemResponse>;
   create: (body: Body) => Observable<WishlistItemResponse>;
-  update: (id: Id, body: Body) => Observable<WishlistItemResponse>;
+  update: (body: WishlistItem) => Observable<void>;
   delete: (id: Id) => Observable<void>;
 }
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { WishlistItemForDb } from './types';
 import { map } from 'rxjs/operators';
+import { WishlistItemForDb } from './types';
 import {
   MylistDataAccess,
   WishlistItemResponse,
@@ -49,15 +49,10 @@ export class ApiClientForInMemoryDbService implements MylistDataAccess {
       );
   }
 
-  update(id: Id, body: Body) {
+  update(body: WishlistItemForDb) {
     return this.httpClient
-      .put<WishlistItemForDb>(`${this.baseUrl}/${id}`, body)
-      .pipe(
-        map(
-          (item) =>
-            new WishlistItemResponse(item.id, item.title, item.description)
-        )
-      );
+      .put(`${this.baseUrl}/${body.id}`, body)
+      .pipe(map(() => undefined));
   }
 
   delete(id: Id) {
