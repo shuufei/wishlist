@@ -1,0 +1,14 @@
+name: ci
+on: [push]
+jobs:
+  shared-ui-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: node -v
+      - run: pwd
+      - run: npm ci
+      - run: npx nx run shared-ui:test
