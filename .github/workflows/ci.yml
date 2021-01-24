@@ -1,7 +1,7 @@
-name: learn-github-actions
+name: ci
 on: [push]
 jobs:
-  check-bats-version:
+  shared-ui-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
