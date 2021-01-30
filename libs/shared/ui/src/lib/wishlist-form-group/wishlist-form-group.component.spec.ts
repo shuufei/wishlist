@@ -10,7 +10,7 @@ import { WishlistFormGroupComponentHarness } from './wishlist-form-group.compone
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 import { FormControl } from '@ngneat/reactive-forms';
 
-fdescribe('WishlistFormGroupComponent', () => {
+describe('WishlistFormGroupComponent', () => {
   let component: WishlistFormGroupComponent;
   let fixture: ComponentFixture<WishlistFormGroupComponent>;
   let harness: WishlistFormGroupComponentHarness;
