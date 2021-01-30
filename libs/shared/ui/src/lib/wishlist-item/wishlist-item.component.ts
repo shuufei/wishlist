@@ -1,6 +1,5 @@
 import {
   Component,
-  ChangeDetectionStrategy,
   Input,
   Output,
   EventEmitter,
@@ -16,7 +15,6 @@ import { WishlistItem } from '../types';
   selector: 'ui-wishlist-item',
   templateUrl: './wishlist-item.component.html',
   styleUrls: ['./wishlist-item.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WishlistItemComponent implements OnDestroy {
   @Input()
