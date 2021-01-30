@@ -1,17 +1,10 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  Output,
-  EventEmitter,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormControl } from '@ngneat/reactive-forms';
 
 @Component({
   selector: 'ui-wishlist-form-group',
   templateUrl: './wishlist-form-group.component.html',
   styleUrls: ['./wishlist-form-group.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WishlistFormGroupComponent {
   @Input() titleFormCtrl = new FormControl<string>('');

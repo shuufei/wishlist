@@ -1,12 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { FormComponent } from './form.component';
 import { FormComponentHarness } from './form.component.harness';
 import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
 
-fdescribe('FormComponent', () => {
+describe('FormComponent', () => {
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
   let harness: FormComponentHarness;
