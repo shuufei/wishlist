@@ -8,6 +8,7 @@ import { NavigationItemComponent } from './navigation-item/navigation-item.compo
 import { WishlistItemComponent } from './wishlist-item/wishlist-item.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { WishlistFormGroupComponent } from './wishlist-form-group/wishlist-form-group.component';
+import { FormComponent } from './sandbox/form/form.component';
 
 const COMPONENTS = [
   ButtonComponent,
@@ -21,7 +22,7 @@ const COMPONENTS = [
 
 @NgModule({
   imports: [CommonModule, ReactiveFormsModule],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, FormComponent],
   exports: [...COMPONENTS],
 })
 export class UiModule {}
