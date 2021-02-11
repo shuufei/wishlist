@@ -61,7 +61,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "wishlist-desktop-app:build"
+            "browserTarget": "wishlist-desktop-app:build",
+            "proxyConfig": "apps/wishlist-desktop-app/proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -298,6 +299,57 @@
           "outputs": ["coverage/libs/mylist/infrastructure/store"],
           "options": {
             "jestConfig": "libs/mylist/infrastructure/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "wishlist-graphql-api": {
+      "root": "apps/wishlist-graphql-api",
+      "sourceRoot": "apps/wishlist-graphql-api/src",
+      "projectType": "application",
+      "prefix": "wishlist-graphql-api",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/wishlist-graphql-api",
+            "main": "apps/wishlist-graphql-api/src/main.ts",
+            "tsConfig": "apps/wishlist-graphql-api/tsconfig.app.json",
+            "assets": ["apps/wishlist-graphql-api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/wishlist-graphql-api/src/environments/environment.ts",
+                  "with": "apps/wishlist-graphql-api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "wishlist-graphql-api:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/wishlist-graphql-api/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/wishlist-graphql-api"],
+          "options": {
+            "jestConfig": "apps/wishlist-graphql-api/jest.config.js",
             "passWithNoTests": true
           }
         }

@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/mylist/domain',
     '<rootDir>/libs/shared/domain',
     '<rootDir>/libs/mylist/shared/store',
+    '<rootDir>/apps/wishlist-graphql-api',
   ],
 };
