@@ -1,0 +1,24 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Wishlist {
+  id: Int!
+  title: String!
+  description: String!
+}
+
+type Query {
+  wishlist: [Wishlist!]!
+}
+
+type Mutation {
+  create(params: CreateWishlistInput!): Wishlist!
+  update(id: Int!): Wishlist!
+  delete(id: Int!): Int!
+}
+
+input CreateWishlistInput {
+  title: String!
+  description: String!
+}
