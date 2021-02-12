@@ -118,3 +118,55 @@ feature-shell -> domain
 data-access -> feature-shell
 store -> feature-shell
 ```
+
+## GraphQL Server の起動(on Docker)
+
+TODO: 改善
+
+1. Docker Image を Build
+
+   ```sh
+   /work/projects/wishlist feature-add-api*
+   ❯ pwd
+   /Users/hanashiroshuuhei/work/projects/wishlist
+
+   ~/work/projects/wishlist feature-add-api*
+   ❯ docker build -t wishlist-api -f construction/container/api/Dockerfile .
+   ```
+
+1. Docker network 作成(初回のみ)
+   ```sh
+   ~/work/projects/wishlist feature-add-api*
+   ❯ docker network create wishlist-api
+   ```
+1. DynamoDB Local Container の起動
+
+   ```sh
+   ~/work/projects/wishlist feature-add-api*
+   ❯ docker pull amazon/dynamodb-local
+
+   ~/work/projects/wishlist feature-add-api*
+   docker run \
+     --network wishlist-api \
+     --network-alias dynamo \
+     -p 8000:8000 \
+     -d amazon/dynamodb-local \
+     -jar DynamoDBLocal.jar -sharedDb -dbPath .
+   ```
+
+1. DynamoDB Table の作成
+
+   ```
+    ~/work/projects/wishlist/construction/dynamodb feature-add-api*
+    ❯ ./create-tables.sh
+   ```
+
+1. GraphQL Server Container の起動
+   ```
+   ~/work/projects/wishlist feature-add-api*
+   docker run \
+     --network wishlist-api \
+     -dp 3333:3333 \
+     -e DYNAMODB_HOST=dynamo \
+     wishlist-api
+   ```

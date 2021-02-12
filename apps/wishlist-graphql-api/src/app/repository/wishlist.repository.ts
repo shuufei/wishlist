@@ -12,7 +12,9 @@ export type UpdateWishlistItemParams = CreateWishlistItemParams;
 export class WishlistRepository {
   private readonly dynamodb = new DynamoDB({
     region: 'us-west-2',
-    endpoint: 'http://localhost:8000',
+    endpoint: `http://${process.env.DYNAMODB_HOST}:8000`,
+    accessKeyId: 'fakeMyKeyId',
+    secretAccessKey: 'fakeSecretAccessKey',
   });
   private readonly tableName = 'wishlist';
 
