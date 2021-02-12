@@ -1,0 +1,20 @@
+{
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "id",
+      "AttributeType": "N"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "id",
+      "KeyType": "HASH"
+    }
+  ],
+  "TableName": "wishlist",
+  "BillingMode": "PROVISIONED",
+  "ProvisionedThroughput": {
+    "WriteCapacityUnits": 1,
+    "ReadCapacityUnits": 1
+  }
+}
