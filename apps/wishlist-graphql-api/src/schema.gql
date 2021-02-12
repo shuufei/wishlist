@@ -3,7 +3,7 @@
 # ------------------------------------------------------
 
 type Wishlist {
-  id: Int!
+  id: Float!
   title: String!
   description: String!
 }
@@ -14,11 +14,16 @@ type Query {
 
 type Mutation {
   create(params: CreateWishlistInput!): Wishlist!
-  update(id: Int!): Wishlist!
-  delete(id: Int!): Int!
+  update(params: UpdateWishlistInput!, id: Float!): Wishlist!
+  delete(id: Float!): Float!
 }
 
 input CreateWishlistInput {
+  title: String!
+  description: String!
+}
+
+input UpdateWishlistInput {
   title: String!
   description: String!
 }

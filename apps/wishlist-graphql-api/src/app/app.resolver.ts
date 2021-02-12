@@ -1,36 +1,38 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { Observable, of } from 'rxjs';
+import { Resolver, Query, Mutation, Args, Float } from '@nestjs/graphql';
+import { from, Observable } from 'rxjs';
 import { CreateWishlistInput } from './models/create-wishlist-input';
+import { UpdateWishlistInput } from './models/update-wishlist-input';
 import { Wishlist } from './models/wishlist.model';
+import { WishlistRepository } from './repository/wishlist.repository';
 
-@Resolver((of) => Wishlist)
+@Resolver(() => Wishlist)
 export class AppResolver {
-  @Query((returns) => [Wishlist])
+  constructor(private wishlistRepository: WishlistRepository) {}
+
+  @Query(() => [Wishlist])
   wishlist(): Observable<Wishlist[]> {
-    return of([]);
+    const req = this.wishlistRepository.list();
+    return from(req);
   }
 
-  @Mutation((returns) => Wishlist)
+  @Mutation(() => Wishlist)
   create(@Args('params') params: CreateWishlistInput): Observable<Wishlist> {
-    console.log('create params: ', params);
-    return of({
-      id: 99,
-      title: params.title,
-      description: params.description,
-    });
+    const req = this.wishlistRepository.create(params);
+    return from(req);
   }
 
-  @Mutation((returns) => Wishlist)
-  update(@Args('id', { type: () => Int }) id: number): Observable<Wishlist> {
-    return of({
-      id,
-      title: 'title',
-      description: 'description',
-    });
+  @Mutation(() => Wishlist)
+  update(
+    @Args('id', { type: () => Float }) id: number,
+    @Args('params') params: UpdateWishlistInput
+  ): Observable<Wishlist> {
+    const req = this.wishlistRepository.update(id, params);
+    return from(req);
   }
 
-  @Mutation((returns) => Int)
-  delete(@Args('id', { type: () => Int }) id: number): Observable<number> {
-    return of(id);
+  @Mutation(() => Float)
+  delete(@Args('id', { type: () => Float }) id: number): Observable<number> {
+    const req = this.wishlistRepository.delete(id);
+    return from(req);
   }
 }

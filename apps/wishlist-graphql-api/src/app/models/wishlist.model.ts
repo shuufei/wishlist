@@ -1,9 +1,9 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { ObjectType, Field, Float } from '@nestjs/graphql';
 import { WishlistItem } from '@wishlist/shared/domain';
 
 @ObjectType()
 export class Wishlist implements WishlistItem {
-  @Field((type) => Int)
+  @Field(() => Float)
   readonly id: number;
 
   @Field()
