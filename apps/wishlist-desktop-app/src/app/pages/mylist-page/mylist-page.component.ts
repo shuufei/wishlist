@@ -4,8 +4,9 @@ import {
   OnInit,
   OnDestroy,
 } from '@angular/core';
+import { Apollo, gql } from 'apollo-angular';
 import { Subject, merge } from 'rxjs';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { MylistFacadeService } from '@wishlist/mylist/feature-shell';
 import { WishlistItem } from '@wishlist/shared/ui';
 
@@ -46,7 +47,10 @@ export class MylistPageComponent implements OnInit, OnDestroy {
     switchMap((item) => this.mylistFacade.create(item))
   );
 
-  constructor(private mylistFacade: MylistFacadeService) {}
+  constructor(
+    private mylistFacade: MylistFacadeService,
+    private apollo: Apollo
+  ) {}
 
   ngOnInit() {
     merge(
@@ -58,6 +62,16 @@ export class MylistPageComponent implements OnInit, OnDestroy {
       .pipe(takeUntil(this.onDestroy$))
       .subscribe();
     this.onInit$.next();
+    this.apollo
+      .watchQuery({
+        query: gql`
+        wishlist {
+          id
+        }
+      `,
+      })
+      .valueChanges.pipe(tap((v) => console.log('---query response: ', v)))
+      .subscribe();
   }
 
   ngOnDestroy() {
