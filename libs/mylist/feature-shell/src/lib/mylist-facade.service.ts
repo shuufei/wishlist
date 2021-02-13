@@ -24,7 +24,7 @@ export class MylistFacadeService {
 
   update(item: WishlistItem) {
     return this.dataAccessService
-      .update(item)
+      .update(item.id, item)
       .pipe(tap(() => this.store.update(item)));
   }
 

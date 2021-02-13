@@ -49,7 +49,7 @@ export class ApiClientForInMemoryDbService implements MylistDataAccess {
       );
   }
 
-  update(body: WishlistItem) {
+  update(id: Id, body: WishlistItem) {
     return this.httpClient
       .put(`${this.baseUrl}/${body.id}`, body)
       .pipe(map(() => undefined));
