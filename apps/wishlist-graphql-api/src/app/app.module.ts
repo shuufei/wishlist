@@ -8,6 +8,11 @@ import { WishlistRepository } from './repository/wishlist.repository';
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: 'apps/wishlist-graphql-api/src/schema.gql',
+      cors: {
+        origin: '*',
+        methods: '*',
+        exposedHeaders: '*',
+      },
     }),
   ],
   controllers: [],
