@@ -146,7 +146,7 @@ TODO: 改善
    ❯ docker pull amazon/dynamodb-local
 
    ~/work/projects/wishlist feature-add-api*
-   ❯ docker run \
+   docker run \
      --network wishlist-api \
      --network-alias dynamo \
      -p 8000:8000 \
@@ -164,7 +164,7 @@ TODO: 改善
 1. GraphQL Server Container の起動
    ```
    ~/work/projects/wishlist feature-add-api*
-   ❯ docker run \
+   docker run \
      --network wishlist-api \
      -dp 3333:3333 \
      -e DYNAMODB_HOST=dynamo \
