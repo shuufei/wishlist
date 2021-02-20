@@ -8,6 +8,7 @@ import { Subject, merge } from 'rxjs';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { MylistFacadeService } from '@wishlist/mylist/feature-shell';
 import { WishlistItem } from '@wishlist/shared/ui';
+import { tag } from 'rxjs-spy/operators/tag';
 
 @Component({
   selector: 'wda-mylist-page',
@@ -17,7 +18,7 @@ import { WishlistItem } from '@wishlist/shared/ui';
 })
 export class MylistPageComponent implements OnInit, OnDestroy {
   // State
-  readonly wishlistItems$ = this.mylistFacade.mylist$;
+  readonly wishlistItems$ = this.mylistFacade.mylist$.pipe(tag('wishlist'));
 
   // Events
   readonly onUpdate$ = new Subject<[id: number, item: WishlistItem]>();
