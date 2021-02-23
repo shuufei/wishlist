@@ -1,4 +1,6 @@
 @use '../../../libs/shared/ui/src/styles/main.scss';
+@use './styles/taiga-ui-variables.scss';
+@use './styles/taiga-ui-override.scss';
 
 html,
 body {

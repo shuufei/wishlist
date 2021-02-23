@@ -23,9 +23,18 @@
                 "glob": "**/*",
                 "input": "libs/shared/ui/src/assets",
                 "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@taiga-ui/icons/src",
+                "output": "assets/taiga-ui/icons"
               }
             ],
-            "styles": ["apps/wishlist-desktop-app/src/styles.scss"],
+            "styles": [
+              "apps/wishlist-desktop-app/src/styles.scss",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-global.less",
+              "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less"
+            ],
             "scripts": []
           },
           "configurations": {

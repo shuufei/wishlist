@@ -1,1 +1,17 @@
 <p class="ui-bg-color-primary-light ui-p-5 title">profile-page works!</p>
+
+<button tuiButton>Default Button</button><br />
+<button tuiButton size="s">small Button</button><br />
+<button tuiButton type="button" appearance="custom-button">
+  Custom Button
+</button>
+
+<p tuiHint="hint hint hint ">Component with a static text...</p>
+
+<tui-tag
+  [value]="'label'"
+  [status]="primaryStatus"
+  [removable]="true"
+  data-appearance="custom"
+  (edited)="edited($event)"
+></tui-tag>
