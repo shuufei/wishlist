@@ -1,7 +1,7 @@
 FROM node:12-alpine
 EXPOSE 3333
 WORKDIR /wishlist
-COPY ./package.json ./
+COPY package.json ./
 RUN npm install
 COPY . .
 RUN npx nx build wishlist-graphql-api

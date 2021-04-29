@@ -2,7 +2,10 @@ import { Module } from '@nestjs/common';
 
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppResolver } from './app.resolver';
-import { WishlistRepository } from './repository/wishlist.repository';
+import {
+  WishlistRepository,
+  MockWishlistRepository,
+} from './repository/wishlist.repository';
 
 @Module({
   imports: [
@@ -16,6 +19,9 @@ import { WishlistRepository } from './repository/wishlist.repository';
     }),
   ],
   controllers: [],
-  providers: [AppResolver, WishlistRepository],
+  providers: [
+    AppResolver,
+    { provide: WishlistRepository, useClass: MockWishlistRepository },
+  ],
 })
 export class AppModule {}

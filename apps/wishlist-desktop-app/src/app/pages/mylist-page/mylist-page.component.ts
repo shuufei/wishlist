@@ -5,10 +5,11 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { Subject, merge } from 'rxjs';
-import { switchMap, takeUntil } from 'rxjs/operators';
+import { switchMap, take, takeUntil } from 'rxjs/operators';
 import { MylistFacadeService } from '@wishlist/mylist/feature-shell';
 import { WishlistItem } from '@wishlist/shared/ui';
 import { tag } from 'rxjs-spy/operators/tag';
+import { ApolloService } from './services/apollo.service';
 
 @Component({
   selector: 'wda-mylist-page',
@@ -21,8 +22,8 @@ export class MylistPageComponent implements OnInit, OnDestroy {
   readonly wishlistItems$ = this.mylistFacade.mylist$.pipe(tag('wishlist'));
 
   // Events
-  readonly onUpdate$ = new Subject<[id: number, item: WishlistItem]>();
-  readonly onDelete$ = new Subject<number>();
+  readonly onUpdate$ = new Subject<[id: string, item: WishlistItem]>();
+  readonly onDelete$ = new Subject<string>();
   readonly onCreate$ = new Subject<WishlistItem>();
   private readonly onInit$ = new Subject<void>();
   private readonly onDestroy$ = new Subject<void>();
@@ -47,7 +48,14 @@ export class MylistPageComponent implements OnInit, OnDestroy {
     switchMap((item) => this.mylistFacade.create(item))
   );
 
-  constructor(private mylistFacade: MylistFacadeService) {}
+  listRes$ = this.apolloService.list();
+
+  usersRes$ = this.apolloService.getUsers();
+
+  constructor(
+    private mylistFacade: MylistFacadeService,
+    private apolloService: ApolloService
+  ) {}
 
   ngOnInit() {
     merge(
@@ -55,13 +63,58 @@ export class MylistPageComponent implements OnInit, OnDestroy {
       this.updateItemHandler$,
       this.deleteItemHandler$,
       this.createItemHandler$
-    )
-      .pipe(takeUntil(this.onDestroy$))
-      .subscribe();
+    ).pipe(takeUntil(this.onDestroy$));
+    // .subscribe();
     this.onInit$.next();
+
+    // this.apolloService.list();
+    // this.apolloService
+    //   .create({
+    //     title: 'title_' + new Date().toISOString(),
+    //     description: 'description_' + new Date().toISOString(),
+    //   })
+    //   .subscribe((v) => console.log('--- create sub: ', v));
+    // setTimeout(() => {
+    //   this.apolloService.list().subscribe((v) => console.log('--- sub2: ', v));
+    // }, 3000);
+    // this.apolloService.list().subscribe((v) => console.log('--- sub3: ', v));
   }
 
   ngOnDestroy() {
     this.onDestroy$.next();
+  }
+
+  create() {
+    this.apolloService
+      .create({
+        title: 'title_' + new Date().toISOString(),
+        description: 'description_' + new Date().toISOString(),
+      })
+      .subscribe((v) => console.log('--- create sub: ', v));
+  }
+
+  delete(id: string) {
+    return this.apolloService.delete(id).subscribe();
+  }
+
+  update(id: string) {
+    return this.apolloService
+      .update(id, {
+        title: 'update_' + new Date().toISOString(),
+        description: 'update_' + new Date().toISOString(),
+      })
+      .subscribe();
+  }
+
+  getWishlist() {
+    this.apolloService.list2().subscribe();
+  }
+
+  getUsers() {
+    return this.apolloService.getUsers().subscribe();
+  }
+
+  getWishlistById() {
+    this.apolloService.getWishlist('161683081231618').subscribe();
   }
 }

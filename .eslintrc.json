@@ -27,6 +27,10 @@
               {
                 "sourceTag": "scope:mylist-infrastructure",
                 "onlyDependOnLibsWithTags": ["scope:mylist-feature"]
+              },
+              {
+                "sourceTag": "scope:wishlist-graphql-api",
+                "onlyDependOnLibsWithTags": ["scope:shared-ui"]
               }
             ]
           }

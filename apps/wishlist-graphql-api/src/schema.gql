@@ -3,19 +3,27 @@
 # ------------------------------------------------------
 
 type Wishlist {
-  id: Float!
+  id: ID!
   title: String!
   description: String!
 }
 
+type User {
+  id: ID!
+  title: String!
+  items: [Wishlist!]!
+}
+
 type Query {
   wishlist: [Wishlist!]!
+  getWishlist(id: ID!): Wishlist!
+  users: [User!]!
 }
 
 type Mutation {
   create(params: CreateWishlistInput!): Wishlist!
-  update(params: UpdateWishlistInput!, id: Float!): Wishlist!
-  delete(id: Float!): Float!
+  update(params: UpdateWishlistInput!, id: ID!): Wishlist!
+  delete(id: ID!): Wishlist!
 }
 
 input CreateWishlistInput {

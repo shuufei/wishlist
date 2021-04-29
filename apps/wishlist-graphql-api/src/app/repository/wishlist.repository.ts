@@ -12,7 +12,8 @@ export type UpdateWishlistItemParams = CreateWishlistItemParams;
 export class WishlistRepository {
   private readonly dynamodb = new DynamoDB({
     region: 'us-west-2',
-    endpoint: `http://${process.env.DYNAMODB_HOST}:8000`,
+    // endpoint: `http://${process.env.DYNAMODB_HOST}:8000`,
+    endpoint: `http://localhost:8000`,
     accessKeyId: 'fakeMyKeyId',
     secretAccessKey: 'fakeSecretAccessKey',
   });
@@ -23,7 +24,7 @@ export class WishlistRepository {
     const putParams: DynamoDB.PutItemInput = {
       Item: {
         id: {
-          N: id,
+          S: id,
         },
         title: {
           S: params.title,
@@ -36,7 +37,7 @@ export class WishlistRepository {
     };
     await this.dynamodb.putItem(putParams).promise();
     return {
-      id: Number(id),
+      id,
       title: params.title,
       description: params.description,
     };
@@ -49,9 +50,9 @@ export class WishlistRepository {
     const res = await this.dynamodb.scan(scanParams).promise();
     return (
       res.Items?.map((item) => ({
-        id: Number(item.id.N),
-        title: item.title.S,
-        description: item.description.S,
+        id: item.id.S as string,
+        title: item.title.S as string,
+        description: item.description.S as string,
       })) ?? []
     );
   }
@@ -63,7 +64,7 @@ export class WishlistRepository {
     const putParams: DynamoDB.PutItemInput = {
       Item: {
         id: {
-          N: `${id}`,
+          S: `${id}`,
         },
         title: {
           S: params.title,
@@ -86,12 +87,44 @@ export class WishlistRepository {
     const deleteParams: DynamoDB.DeleteItemInput = {
       Key: {
         id: {
-          N: `${id}`,
+          S: `${id}`,
         },
       },
       TableName: this.tableName,
     };
     await this.dynamodb.deleteItem(deleteParams).promise();
     return id;
+  }
+}
+
+export class MockWishlistRepository {
+  async create(): ReturnType<WishlistRepository['create']> {
+    return {
+      id: 'mock id',
+      title: 'mock title',
+      description: 'mock description',
+    };
+  }
+
+  async list(): ReturnType<WishlistRepository['list']> {
+    return [
+      {
+        id: 'mock id',
+        title: 'mock title',
+        description: 'mock description',
+      },
+    ];
+  }
+
+  async update(): ReturnType<WishlistRepository['update']> {
+    return {
+      id: 'mock id',
+      title: 'mock title',
+      description: 'mock description',
+    };
+  }
+
+  async delete(): ReturnType<WishlistRepository['delete']> {
+    return 'id';
   }
 }

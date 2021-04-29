@@ -8,6 +8,7 @@ export function createApollo(httpLink: HttpLink): ApolloClientOptions<unknown> {
   return {
     link: httpLink.create({ uri }),
     cache: new InMemoryCache(),
+    connectToDevTools: true,
   };
 }
 

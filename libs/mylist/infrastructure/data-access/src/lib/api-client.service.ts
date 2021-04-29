@@ -79,7 +79,7 @@ export class ApiClientService implements MylistDataAccess {
         update: WishlistItem;
       }>({
         mutation: gql`
-          mutation Update($id: Float!, $title: String!, $description: String!) {
+          mutation Update($id: ID!, $title: String!, $description: String!) {
             update(
               id: $id
               params: { title: $title, description: $description }
@@ -100,12 +100,13 @@ export class ApiClientService implements MylistDataAccess {
   }
 
   delete(id: Id) {
+    console.log('-- delete: ', id, typeof id);
     return this.apollo
       .mutate<{
         delete: Id;
       }>({
         mutation: gql`
-          mutation Delete($id: Float!) {
+          mutation Delete($id: ID!) {
             delete(id: $id)
           }
         `,

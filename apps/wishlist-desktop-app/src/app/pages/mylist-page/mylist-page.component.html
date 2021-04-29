@@ -2,8 +2,12 @@
   <wda-add-item-form (create)="onCreate$.next($event)"></wda-add-item-form>
 </div>
 
+<button (click)="create()">create</button>
+<button (click)="getUsers()">get users</button>
+<button (click)="getWishlist()">get wishlist</button>
+<button (click)="getWishlistById()">get wishlist by id</button>
 <div>
-  <ng-container *ngFor="let wishlist of wishlistItems$ | async; last as isLast">
+  <!-- <ng-container *ngFor="let wishlist of wishlistItems$ | async; last as isLast">
     <ui-wishlist-item
       [title]="wishlist.title"
       [description]="wishlist.description"
@@ -11,5 +15,25 @@
       (update)="onUpdate$.next([wishlist.id, $event])"
       (delete)="onDelete$.next(wishlist.id)"
     ></ui-wishlist-item>
+  </ng-container> -->
+  <ng-container *ngFor="let v of (listRes$ | async)?.data?.wishlist">
+    <div class="">
+      <p>{{ v.id }}: {{ v.title }}</p>
+      <button (click)="delete(v.id)">delete</button>
+      <button (click)="update(v.id)">update</button>
+    </div>
   </ng-container>
+
+  <ng-container *ngFor="let v of (usersRes$ | async)?.data?.users">
+    <div class="users">
+      <p>{{ v.id }}: {{ v.title }}</p>
+      <ng-container *ngFor="let item of v.items">
+        <div class="">
+          <p>{{ item.id }}: {{ item.title }}</p>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <!-- {{ listRes$ | async | json }} -->
 </div>

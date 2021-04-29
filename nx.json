@@ -1,6 +1,4 @@
 {
-  "npmScope": "wishlist",
-  "affected": { "defaultBase": "main" },
   "implicitDependencies": {
     "angular.json": "*",
     "package.json": { "dependencies": "*", "devDependencies": "*" },
@@ -8,6 +6,8 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": { "defaultBase": "main" },
+  "npmScope": "wishlist",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
@@ -33,6 +33,6 @@
       "tags": ["scope:mylist-infrastructure"]
     },
     "mylist-infrastructure-store": { "tags": ["scope:mylist-infrastructure"] },
-    "wishlist-graphql-api": { "tags": [] }
+    "wishlist-graphql-api": { "tags": ["scope:wishlist-graphql-api"] }
   }
 }

@@ -24,24 +24,24 @@ import { HttpClient } from '@angular/common/http';
 @NgModule({
   declarations: [MylistPageComponent, AddItemFormComponent],
   providers: [
-    // {
-    //   provide: MylistFacadeService,
-    //   deps: [Apollo, RxState],
-    //   useFactory: (apollo: Apollo, state: RxState<State>) =>
-    //     new MylistFacadeService(
-    //       new ApiClientService(apollo),
-    //       new MylistStoreService(state)
-    //     ),
-    // },
     {
       provide: MylistFacadeService,
-      deps: [HttpClient, RxState],
-      useFactory: (http: HttpClient, state: RxState<State>) =>
+      deps: [Apollo, RxState],
+      useFactory: (apollo: Apollo, state: RxState<State>) =>
         new MylistFacadeService(
-          new ApiClientForInMemoryDbService(http),
+          new ApiClientService(apollo),
           new MylistStoreService(state)
         ),
     },
+    // {
+    //   provide: MylistFacadeService,
+    //   deps: [HttpClient, RxState],
+    //   useFactory: (http: HttpClient, state: RxState<State>) =>
+    //     new MylistFacadeService(
+    //       new ApiClientForInMemoryDbService(http),
+    //       new MylistStoreService(state)
+    //     ),
+    // },
   ],
   imports: [
     CommonModule,

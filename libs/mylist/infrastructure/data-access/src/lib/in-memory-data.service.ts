@@ -9,17 +9,17 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const mylist: WishlistItem[] = [
       {
-        id: 1,
+        id: '1',
         title: '黒い財布',
         description: 'シンプルな長財布',
       },
       {
-        id: 2,
+        id: '2',
         title: '図書カード',
         description: '本の出費がやばいので図書カードは助かる',
       },
       {
-        id: 3,
+        id: '3',
         title: 'お酒',
         description: 'ビールが好き',
       },
